@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5D6EF02C1F25EADC00BD98B9 /* CRDT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D6EF0221F25EADC00BD98B9 /* CRDT.framework */; };
-		5D6EF0331F25EADC00BD98B9 /* CRDT.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D6EF0251F25EADC00BD98B9 /* CRDT.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D6EF03D1F25EE9E00BD98B9 /* Replica.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EF03C1F25EE9E00BD98B9 /* Replica.swift */; };
 		5D6EF0431F25F08F00BD98B9 /* GCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EF0421F25F08F00BD98B9 /* GCounter.swift */; };
 		5D6EF0451F25F26500BD98B9 /* CvRDT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EF0441F25F26500BD98B9 /* CvRDT.swift */; };
@@ -37,14 +36,14 @@
 
 /* Begin PBXFileReference section */
 		5D6EF0221F25EADC00BD98B9 /* CRDT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CRDT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D6EF0251F25EADC00BD98B9 /* CRDT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRDT.h; sourceTree = "<group>"; };
-		5D6EF0261F25EADC00BD98B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D6EF02B1F25EADC00BD98B9 /* CRDTTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CRDTTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6EF0321F25EADC00BD98B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D6EF03C1F25EE9E00BD98B9 /* Replica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Replica.swift; sourceTree = "<group>"; };
 		5D6EF0421F25F08F00BD98B9 /* GCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCounter.swift; sourceTree = "<group>"; };
 		5D6EF0441F25F26500BD98B9 /* CvRDT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvRDT.swift; sourceTree = "<group>"; };
 		5D6EF0471F26055000BD98B9 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		5DCF5CE21F2648330095862B /* CRDT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRDT.h; sourceTree = "<group>"; };
+		5DCF5CE31F2648330095862B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DDB4DD51F2615960075E219 /* SemiLattice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiLattice.swift; sourceTree = "<group>"; };
 		5DDB4DD71F2616CD0075E219 /* PNCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNCounter.swift; sourceTree = "<group>"; };
 		5DDB4DD91F26193F0075E219 /* GCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCounterTests.swift; sourceTree = "<group>"; };
@@ -97,11 +96,11 @@
 		5D6EF0241F25EADC00BD98B9 /* CRDT */ = {
 			isa = PBXGroup;
 			children = (
+				5DCF5CE21F2648330095862B /* CRDT.h */,
+				5DCF5CE31F2648330095862B /* Info.plist */,
 				5D6EF0411F25F07B00BD98B9 /* Convergent */,
 				5D6EF03E1F25EF3B00BD98B9 /* Replicas */,
 				5D6EF0461F26053E00BD98B9 /* Util */,
-				5D6EF0251F25EADC00BD98B9 /* CRDT.h */,
-				5D6EF0261F25EADC00BD98B9 /* Info.plist */,
 			);
 			path = CRDT;
 			sourceTree = "<group>";
@@ -156,7 +155,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D6EF0331F25EADC00BD98B9 /* CRDT.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
