@@ -55,7 +55,7 @@ class GSetTests: XCTestCase {
         XCTAssert(b <= a)
     }
     
-    func partiallyOrdered() {
+    func testPartiallyOrdered() {
         var a = newSet()                        // {}
         var b = newSet()                        // {}
         
@@ -70,12 +70,12 @@ class GSetTests: XCTestCase {
         b.add(1)                                // {1}
         b.add(2)                                // {1, 2}
         
-        XCTAssertFalse(a <= b)
+        XCTAssert(a <= b)
         XCTAssertFalse(b <= a)
         
         a.join(other: b)                        // {1, 2}
         
-        XCTAssertFalse(a <= b)
+        XCTAssert(a <= b)
         XCTAssert(b <= a)
         
         b.join(other: a)                        // {1, 2}
@@ -94,6 +94,7 @@ class GSetTests: XCTestCase {
         
         XCTAssertEqual(Set(set), [1, 2, 3, 4, 5])
     }
+    
 }
 
 // MARK: - Util
