@@ -79,31 +79,43 @@ class PNCounterTests: XCTestCase {
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         a.increment()                           // P: [a: 1], N: []
         
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         b.increment()                           // P: [b: 1], N: []
         
         XCTAssertFalse(a <= b)
         XCTAssertFalse(b <= a)
+        XCTAssert(a.isConcurrent(to: b))
+        XCTAssert(b.isConcurrent(to: a))
 
         a.join(other: b)                        // P: [a: 1, b: 1], N: []
         
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         a.decrement()                           // P: [a: 1, b: 1], N: [a: 1]
         
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         b.join(other: a)                        // P: [a: 1, b: 1], N: [a: 1]
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
     }
     
 }

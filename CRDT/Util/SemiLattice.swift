@@ -10,6 +10,12 @@ public protocol PartiallyOrdered {
     static func <=(lhs: Self, rhs: Self) -> Bool
 }
 
+extension PartiallyOrdered {
+    func isConcurrent(to other: Self) -> Bool {
+        return !(self <= other) && !(other <= self)
+    }
+}
+
 public protocol Joinable {
     // must be associative, commutative, idempotent
     mutating func join(other: Self)

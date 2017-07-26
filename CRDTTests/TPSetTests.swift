@@ -110,27 +110,37 @@ class TPSetTests: XCTestCase {
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         a.add(1)                                    // A: {1}, R: {}
         
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         b.add(2)                                    // A: {2}, R: {}
         b.remove(2)                                 // A: {2}, R: {2}
         
         XCTAssertFalse(a <= b)
         XCTAssertFalse(b <= a)
+        XCTAssert(a.isConcurrent(to: b))
+        XCTAssert(b.isConcurrent(to: a))
         
         b.join(other: a)                            // A: {1, 2}, R: {2}
         
         XCTAssert(a <= b)
         XCTAssertFalse(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         a.join(other: b)                            // A: {1, 2}, R: {2}
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
     }
     
     func testSequence() {

@@ -58,31 +58,43 @@ class GCounterTests: XCTestCase {
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         a.increment()                   // [a: 1]
         
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         b.increment()                   // [b: 1]
         
         XCTAssertFalse(a <= b)
         XCTAssertFalse(b <= a)
+        XCTAssert(a.isConcurrent(to: b))
+        XCTAssert(b.isConcurrent(to: a))
         
         a.join(other: b)                // [a: 1, b:1]
         
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         b.join(other: a)                // [a: 1, b: 1]
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         b.increment()                   // [a: 1, b: 2]
         
         XCTAssert(a <= b)
         XCTAssertFalse(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
     }
     
 }

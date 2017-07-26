@@ -110,21 +110,29 @@ class FlagTests: XCTestCase {
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         a.set()                         // true
         
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         a.join(other: b)                // true
         
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         b.set()                         // true
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
     }
     
 }

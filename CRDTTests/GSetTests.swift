@@ -61,27 +61,38 @@ class GSetTests: XCTestCase {
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
         a.add(1)                                // {1}
+        a.add(2)                                // {1, 2}
         
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
         
-        b.add(1)                                // {1}
-        b.add(2)                                // {1, 2}
+        b.add(2)                                // {2}
+        b.add(3)                                // {2, 3}
         
-        XCTAssert(a <= b)
+        XCTAssertFalse(a <= b)
         XCTAssertFalse(b <= a)
+        XCTAssert(a.isConcurrent(to: b))
+        XCTAssert(b.isConcurrent(to: a))
         
-        a.join(other: b)                        // {1, 2}
+        a.join(other: b)                        // {1, 2, 3}
+        
+        XCTAssertFalse(a <= b)
+        XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
+        
+        b.join(other: a)                        // {1, 2, 3}
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
-        
-        b.join(other: a)                        // {1, 2}
-        
-        XCTAssert(a <= b)
-        XCTAssert(b <= a)
+        XCTAssertFalse(a.isConcurrent(to: b))
+        XCTAssertFalse(b.isConcurrent(to: a))
     }
     
     func testSequence() {
