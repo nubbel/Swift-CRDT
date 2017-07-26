@@ -26,6 +26,8 @@ extension TPSet {
     }
     
     public mutating func remove(_ element: Element) {
+        guard contains(element) else { return }
+        
         removeSet.add(element)
     }
 }

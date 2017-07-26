@@ -70,6 +70,13 @@ class TPSetTests: XCTestCase {
         // once removed, an element cannot be added again
         set.add(2)
         XCTAssertEqual(set.value, [1, 3])
+        
+        // an element can only be removed if it is in the set
+        set.remove(4)
+        XCTAssertEqual(set.value, [1, 3])
+        
+        set.add(4)
+        XCTAssertEqual(set.value, [1, 3, 4])
     }
     
     func testJoin() {
@@ -79,7 +86,8 @@ class TPSetTests: XCTestCase {
         a.add(1)                                    // A: {1}, R: {}
         a.add(2)                                    // A: {1, 2}, R: {}
         
-        b.remove(2)                                 // A: {}, R: {}
+        b.add(2)                                    // A: {2}, R: {}
+        b.remove(2)                                 // A: {2}, R: {2}
         b.add(3)                                    // A: {3}, R: {2}
         
         let join = a.joining(other: b)              // A: {1, 2, 3}, R: {2}
@@ -108,17 +116,18 @@ class TPSetTests: XCTestCase {
         XCTAssertFalse(a <= b)
         XCTAssert(b <= a)
         
-        b.remove(2)                                 // A: {}, R: {2}
+        b.add(2)                                    // A: {2}, R: {}
+        b.remove(2)                                 // A: {2}, R: {2}
         
         XCTAssertFalse(a <= b)
         XCTAssertFalse(b <= a)
         
-        b.join(other: a)                            // A: {1}, R: {2}
+        b.join(other: a)                            // A: {1, 2}, R: {2}
         
         XCTAssert(a <= b)
         XCTAssertFalse(b <= a)
         
-        a.join(other: b)                            // A: {1}, R: {2}
+        a.join(other: b)                            // A: {1, 2}, R: {2}
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
@@ -136,7 +145,7 @@ class TPSetTests: XCTestCase {
         set.remove(4)
         set.add(4)
         
-        XCTAssertEqual(Set(set), [1, 5])
+        XCTAssertEqual(Set(set), [1, 2, 5])
     }
     
 }
