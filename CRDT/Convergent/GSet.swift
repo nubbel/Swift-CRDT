@@ -8,12 +8,23 @@
 
 struct GSet<Element: Hashable> {
     private var state = Set<Element>()
-    
+}
+
+// MARK: - Queries
+extension GSet {
+    func contains(_ element: Element) -> Bool {
+        return state.contains(element)
+    }
+}
+
+// MARK: - Mutations
+extension GSet {
     public mutating func add(_ element: Element) {
         state.insert(element)
     }
 }
 
+// MARK: - Anonymous CvRDT
 extension GSet: AnonymousCvRDT {
     public var value: Set<Element> {
         return state

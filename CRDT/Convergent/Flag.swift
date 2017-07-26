@@ -8,12 +8,17 @@
 
 public struct Flag {
     private var state = false
-    
+}
+
+// MARK: - Mutations
+
+extension Flag {
     public mutating func set() {
         state = true
     }
 }
 
+// MARK: - Anonymous CvRDT
 extension Flag: AnonymousCvRDT {
     public var value: Bool {
         return state

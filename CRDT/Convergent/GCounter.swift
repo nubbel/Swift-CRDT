@@ -13,12 +13,16 @@ public struct GCounter {
     public init(localReplica: Replica) {
         self.localReplica = localReplica
     }
-    
+}
+
+// MARK: - Mutations
+extension GCounter {
     public mutating func increment(by value: Int = 1) {
         state.incrementValue(forKey: localReplica.uniqueIdentifier, by: value)
     }
 }
 
+// MARK: - Named CvRDT
 extension GCounter: NamedCvRDT {
     public var value: Int {
         return state.values.reduce(0, +)

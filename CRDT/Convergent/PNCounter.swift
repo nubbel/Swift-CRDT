@@ -16,7 +16,10 @@ public struct PNCounter {
         pCounter = GCounter(localReplica: localReplica)
         nCounter = GCounter(localReplica: localReplica)
     }
-    
+}
+
+// MARK: - Mutations
+extension PNCounter {
     public mutating func increment(by value: Int = 1) {
         pCounter.increment(by: value)
     }
@@ -26,6 +29,7 @@ public struct PNCounter {
     }
 }
 
+// MARK: - Named CvRDT
 extension PNCounter: NamedCvRDT {
     public var value: Int {
         return pCounter.value - nCounter.value

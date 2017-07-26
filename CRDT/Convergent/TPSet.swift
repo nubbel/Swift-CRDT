@@ -10,7 +10,17 @@
 public struct TPSet<Element: Hashable> {
     private var addSet = GSet<Element>()
     private var removeSet = GSet<Element>()
-    
+}
+
+// MARK: - Queries
+extension TPSet {
+    func contains(_ element: Element) -> Bool {
+        return addSet.contains(element) && !removeSet.contains(element)
+    }
+}
+
+// MARK: - Mutations
+extension TPSet {
     public mutating func add(_ element: Element) {
         addSet.add(element)
     }
@@ -20,6 +30,7 @@ public struct TPSet<Element: Hashable> {
     }
 }
 
+// MARK: - Anonymous CvRDT
 extension TPSet: AnonymousCvRDT {
     public var value: Set<Element> {
         return addSet.value.subtracting(removeSet.value)
