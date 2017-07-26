@@ -8,18 +8,18 @@
 
 public struct GCounter {
     private let localReplica: Replica
-    private var state = [Replica: Int]()
+    private var state = [AnyHashable: Int]()
     
     public init(localReplica: Replica) {
         self.localReplica = localReplica
     }
     
     public mutating func increment(by value: Int = 1) {
-        state.incrementValue(forKey: localReplica, by: value)
+        state.incrementValue(forKey: localReplica.uniqueIdentifier, by: value)
     }
 }
 
-extension GCounter: CvRDT {
+extension GCounter: NamedCvRDT {
     public var value: Int {
         return state.values.reduce(0, +)
     }

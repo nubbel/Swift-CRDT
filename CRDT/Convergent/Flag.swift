@@ -7,19 +7,14 @@
 //
 
 public struct Flag {
-    private let localReplica: Replica
     private var state = false
-    
-    public init(localReplica: Replica) {
-        self.localReplica = localReplica
-    }
     
     public mutating func set() {
         state = true
     }
 }
 
-extension Flag: CvRDT {
+extension Flag: AnonymousCvRDT {
     public var value: Bool {
         return state
     }

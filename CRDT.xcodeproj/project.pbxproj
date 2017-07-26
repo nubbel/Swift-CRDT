@@ -12,6 +12,7 @@
 		5D6EF0431F25F08F00BD98B9 /* GCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EF0421F25F08F00BD98B9 /* GCounter.swift */; };
 		5D6EF0451F25F26500BD98B9 /* CvRDT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EF0441F25F26500BD98B9 /* CvRDT.swift */; };
 		5D6EF0481F26055000BD98B9 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6EF0471F26055000BD98B9 /* Dictionary.swift */; };
+		5D9C99611F27E5B60076AE0A /* NamedReplica.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C99601F27E5B60076AE0A /* NamedReplica.swift */; };
 		5DDB4DD61F2615960075E219 /* SemiLattice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDB4DD51F2615960075E219 /* SemiLattice.swift */; };
 		5DDB4DD81F2616CD0075E219 /* PNCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDB4DD71F2616CD0075E219 /* PNCounter.swift */; };
 		5DDB4DDA1F26193F0075E219 /* GCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDB4DD91F26193F0075E219 /* GCounterTests.swift */; };
@@ -42,6 +43,7 @@
 		5D6EF0421F25F08F00BD98B9 /* GCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCounter.swift; sourceTree = "<group>"; };
 		5D6EF0441F25F26500BD98B9 /* CvRDT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CvRDT.swift; sourceTree = "<group>"; };
 		5D6EF0471F26055000BD98B9 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		5D9C99601F27E5B60076AE0A /* NamedReplica.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedReplica.swift; sourceTree = "<group>"; };
 		5DCF5CE21F2648330095862B /* CRDT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRDT.h; sourceTree = "<group>"; };
 		5DCF5CE31F2648330095862B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DDB4DD51F2615960075E219 /* SemiLattice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemiLattice.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				5D6EF03C1F25EE9E00BD98B9 /* Replica.swift */,
+				5D9C99601F27E5B60076AE0A /* NamedReplica.swift */,
 			);
 			path = Replicas;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				5DDB4DD61F2615960075E219 /* SemiLattice.swift in Sources */,
 				5DDB4DD81F2616CD0075E219 /* PNCounter.swift in Sources */,
 				5D6EF0481F26055000BD98B9 /* Dictionary.swift in Sources */,
+				5D9C99611F27E5B60076AE0A /* NamedReplica.swift in Sources */,
 				5DDB4DE61F263AF20075E219 /* TPSet.swift in Sources */,
 				5D6EF0451F25F26500BD98B9 /* CvRDT.swift in Sources */,
 				5D6EF03D1F25EE9E00BD98B9 /* Replica.swift in Sources */,

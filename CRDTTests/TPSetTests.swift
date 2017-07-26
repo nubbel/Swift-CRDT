@@ -73,8 +73,8 @@ class TPSetTests: XCTestCase {
     }
     
     func testJoin() {
-        var a = newSet("a")                         // A: {}, R: {}
-        var b = newSet("b")                         // A: {}, R: {}
+        var a = newSet()                            // A: {}, R: {}
+        var b = newSet()                            // A: {}, R: {}
         
         a.add(1)                                    // A: {1}, R: {}
         a.add(2)                                    // A: {1, 2}, R: {}
@@ -97,8 +97,8 @@ class TPSetTests: XCTestCase {
     }
     
     func testPartiallyOrdered() {
-        var a = newSet("a")                         // A: {}, R: {}
-        var b = newSet("b")                         // A: {}, R: {}
+        var a = newSet()                            // A: {}, R: {}
+        var b = newSet()                            // A: {}, R: {}
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
@@ -141,8 +141,7 @@ class TPSetTests: XCTestCase {
     
 }
 
-fileprivate func newSet(_ name: String = "test") -> TPSet<Int> {
-    let replica = Replica(named: name)
-    
-    return TPSet(localReplica: replica)
+// MARK: - Util
+fileprivate func newSet() -> TPSet<Int> {
+    return TPSet()
 }

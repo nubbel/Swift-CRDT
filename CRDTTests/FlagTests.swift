@@ -30,8 +30,8 @@ class FlagTests: XCTestCase {
     }
     
     func testJoinFalseFalse() {
-        var a = newFlag("a")            // false
-        var b = newFlag("b")            // false
+        var a = newFlag()               // false
+        var b = newFlag()               // false
         
         let join = a.joining(other: b)  // false
         XCTAssertEqual(join.value, false)
@@ -47,8 +47,8 @@ class FlagTests: XCTestCase {
     }
     
     func testJoinTrueFalse() {
-        var a = newFlag("a")            // false
-        var b = newFlag("b")            // false
+        var a = newFlag()               // false
+        var b = newFlag()               // false
         
         a.set()                         // true
         
@@ -66,8 +66,8 @@ class FlagTests: XCTestCase {
     }
     
     func testJoinFalseTrue() {
-        var a = newFlag("a")            // false
-        var b = newFlag("b")            // false
+        var a = newFlag()               // false
+        var b = newFlag()               // false
         
         b.set()                         // true
         
@@ -85,8 +85,8 @@ class FlagTests: XCTestCase {
     }
     
     func testJoinTrueTrue() {
-        var a = newFlag("a")            // false
-        var b = newFlag("b")            // false
+        var a = newFlag()               // false
+        var b = newFlag()               // false
         
         a.set()                         // true
         b.set()                         // true
@@ -105,8 +105,8 @@ class FlagTests: XCTestCase {
     }
     
     func testPartiallyOrdered() {
-        var a = newFlag("a")            // false
-        var b = newFlag("b")            // false
+        var a = newFlag()               // false
+        var b = newFlag()               // false
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
@@ -130,8 +130,6 @@ class FlagTests: XCTestCase {
 }
 
 // MARK: - Util
-fileprivate func newFlag(_ name: String = "test") -> Flag {
-    let replica = Replica(named: name)
-    
-    return Flag(localReplica: replica)
+fileprivate func newFlag() -> Flag {
+    return Flag()
 }

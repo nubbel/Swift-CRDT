@@ -87,10 +87,7 @@ class GCounterTests: XCTestCase {
     
 }
 
-
 // MARK: - Util
 fileprivate func newCounter(_ name: String = "test") -> GCounter {
-    let replica = Replica(named: name)
-    
-    return GCounter(localReplica: replica)
+    return GCounter(named: name)
 }

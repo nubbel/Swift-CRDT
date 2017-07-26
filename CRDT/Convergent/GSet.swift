@@ -7,19 +7,14 @@
 //
 
 struct GSet<Element: Hashable> {
-    private let localReplica: Replica
     private var state = Set<Element>()
-    
-    public init(localReplica: Replica) {
-        self.localReplica = localReplica
-    }
     
     public mutating func add(_ element: Element) {
         state.insert(element)
     }
 }
 
-extension GSet: CvRDT {
+extension GSet: AnonymousCvRDT {
     public var value: Set<Element> {
         return state
     }

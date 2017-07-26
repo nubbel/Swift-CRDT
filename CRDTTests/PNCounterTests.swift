@@ -108,8 +108,7 @@ class PNCounterTests: XCTestCase {
     
 }
 
+// MARK: - Util
 fileprivate func newCounter(_ name: String = "test") -> PNCounter {
-    let replica = Replica(named: name)
-    
-    return PNCounter(localReplica: replica)
+    return PNCounter(named: name)
 }

@@ -11,3 +11,22 @@ public protocol CvRDT: JoinSemiLattice {
     
     var value: Value { get }
 }
+
+public protocol AnonymousCvRDT: CvRDT {
+}
+
+public protocol NamedCvRDT: CvRDT {
+    init(localReplica: Replica)
+    init(named: String)
+}
+
+extension NamedCvRDT {
+    public init(named name: String) {
+        let replica = NamedReplica(name)
+        
+        self.init(localReplica: replica)
+    }
+}
+
+public protocol CausalCvRDT: CvRDT {
+}

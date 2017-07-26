@@ -26,7 +26,7 @@ public struct PNCounter {
     }
 }
 
-extension PNCounter: CvRDT {
+extension PNCounter: NamedCvRDT {
     public var value: Int {
         return pCounter.value - nCounter.value
     }

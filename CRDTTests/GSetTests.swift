@@ -35,8 +35,8 @@ class GSetTests: XCTestCase {
     }
     
     func testJoin() {
-        var a = newSet("a")                     // {}
-        var b = newSet("b")                     // {}
+        var a = newSet()                        // {}
+        var b = newSet()                        // {}
         
         a.add(1)                                // {1}
         b.add(2)                                // {2}
@@ -56,8 +56,8 @@ class GSetTests: XCTestCase {
     }
     
     func partiallyOrdered() {
-        var a = newSet("a")                     // {}
-        var b = newSet("b")                     // {}
+        var a = newSet()                        // {}
+        var b = newSet()                        // {}
         
         XCTAssert(a <= b)
         XCTAssert(b <= a)
@@ -96,8 +96,7 @@ class GSetTests: XCTestCase {
     }
 }
 
-fileprivate func newSet(_ name: String = "test") -> GSet<Int> {
-    let replica = Replica(named: name)
-    
-    return GSet(localReplica: replica)
+// MARK: - Util
+fileprivate func newSet() -> GSet<Int> {
+    return GSet()
 }

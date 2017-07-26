@@ -8,15 +8,8 @@
 
 // 2P-Set (Two-Phase Set)
 public struct TPSet<Element: Hashable> {
-    private let localReplica: Replica
-    private var addSet: GSet<Element>
-    private var removeSet: GSet<Element>
-    
-    public init(localReplica: Replica) {
-        self.localReplica = localReplica
-        addSet = GSet(localReplica: localReplica)
-        removeSet = GSet(localReplica: localReplica)
-    }
+    private var addSet = GSet<Element>()
+    private var removeSet = GSet<Element>()
     
     public mutating func add(_ element: Element) {
         addSet.add(element)
@@ -27,7 +20,7 @@ public struct TPSet<Element: Hashable> {
     }
 }
 
-extension TPSet: CvRDT {
+extension TPSet: AnonymousCvRDT {
     public var value: Set<Element> {
         return addSet.value.subtracting(removeSet.value)
     }
