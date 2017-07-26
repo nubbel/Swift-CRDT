@@ -95,6 +95,14 @@ class GSetTests: XCTestCase {
         XCTAssertEqual(Set(set), [1, 2, 3, 4, 5])
     }
     
+    func testContains() {
+        var set = newSet()
+        XCTAssertFalse(set.contains(1))
+        
+        set.add(1)
+        XCTAssert(set.contains(1))
+    }
+    
 }
 
 // MARK: - Util
