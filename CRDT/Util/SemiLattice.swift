@@ -6,13 +6,17 @@
 //  Copyright © 2017 Dominique d'Argent. All rights reserved.
 //
 
-public protocol PartiallyOrdered {
+public protocol PartiallyOrdered: Equatable {
     static func <=(lhs: Self, rhs: Self) -> Bool
 }
 
 extension PartiallyOrdered {
-    func isConcurrent(to other: Self) -> Bool {
+    public func isConcurrent(to other: Self) -> Bool {
         return !(self <= other) && !(other <= self)
+    }
+    
+    public static func ==(lhs: Self, rhs: Self) -> Bool {
+        return lhs <= rhs && rhs <= lhs
     }
 }
 
